@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { Container } from '@material-ui/core';
+import NoteCard from '../components/NoteCard';
 
 export default function Notes() {
 
@@ -9,17 +10,26 @@ export default function Notes() {
     {
       id: 1,
       title: 'ABC',
-      details: 'AABBCC'
+      details: 'AABBCC',
+      exp: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it"
     },
     {
       id: 2,
       title: 'MNO',
-      details: 'MMNNOO'
+      details: 'MMNNOO',
+      exp: "Lorem Ipsum is simply dummy text of the printing"
     },
     {
       id: 3,
       title: 'XYZ',
-      details: 'XXYYZZ'
+      details: 'XXYYZZ',
+      exp: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley"
+    },
+    {
+      id: 4,
+      title: 'PQR',
+      details: 'PPQQRR',
+      exp: "Lorem Ipsum is simply dummy"
     },
   ])
 
@@ -47,11 +57,11 @@ export default function Notes() {
         </Grid>
       </Grid> */}
 
-      <Grid container>
+      <Grid container spacing={3}>
         {notes.map((val) => {
           return (
             <Grid key={val.id} item md={4} sm={6} xs={12}>
-              <Paper>{val.title}</Paper>
+              <NoteCard noteProps={val} />
             </Grid>
           )
         })}
