@@ -4,14 +4,15 @@ import Create from './pages/Create'
 import CreateCopy from './pages/Create Copy';
 import { createTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import { purple } from '@material-ui/core/colors';
+import { blue, purple } from '@material-ui/core/colors';
 
 const myTheme = createTheme({
   palette: {
     primary: {
-      main: "#E5BC3F"
+      main: "#631a13"
     },
-    secondary: purple
+    secondary: purple,
+    info: blue
   },
   typography: {
     fontFamily: 'Quicksand',
