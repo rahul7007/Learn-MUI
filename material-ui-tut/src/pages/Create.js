@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { makeStyles, Typography } from '@material-ui/core'
+import { FormControl, FormControlLabel, FormLabel, makeStyles, Typography } from '@material-ui/core'
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import SendIcon from '@material-ui/icons/Send';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import TextField from '@material-ui/core/TextField';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 const useStyles = makeStyles({
   field: {
@@ -22,6 +24,7 @@ export default function Create() {
   const [details, setDetails] = useState('')
   const [titleError, setTitleError] = useState(false)
   const [detailsError, setDetailsError] = useState(false)
+  const [category, setCategory] = useState('todos')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -37,7 +40,7 @@ export default function Create() {
     }
 
     if (title && details) {
-      console.log(title, details)
+      console.log(title, details, category)
     }
   }
 
@@ -75,6 +78,17 @@ export default function Create() {
           required
           error={detailsError}
         />
+
+        <FormControl>
+          <FormLabel>Note Category</FormLabel>
+          <RadioGroup value={category} onChange={(e) => setCategory(e.target.value)}>
+            <FormControlLabel value="money" control={<Radio />} label="Money" />
+            <FormControlLabel value="todos" control={<Radio />} label="Todos" />
+            <FormControlLabel value="remonder" control={<Radio />} label="Reminder" />
+            <FormControlLabel value="works" control={<Radio />} label="Works" />
+          </RadioGroup>
+        </FormControl>
+        <br />
 
         <Button
           type="submit"
