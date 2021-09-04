@@ -5,6 +5,7 @@ import CreateCopy from './pages/Create Copy';
 import { createTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { blue, purple } from '@material-ui/core/colors';
+import Layout from './components/Layout';
 
 const myTheme = createTheme({
   palette: {
@@ -27,17 +28,19 @@ function App() {
   return (
     <ThemeProvider theme={myTheme}>
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <Notes />
-          </Route>
-          <Route path="/create-copy">
-            <CreateCopy />
-          </Route>
-          <Route path="/create">
-            <Create />
-          </Route>
-        </Switch>
+        <Layout>
+          <Switch>
+            <Route exact path="/">
+              <Notes />
+            </Route>
+            <Route path="/create-copy">
+              <CreateCopy />
+            </Route>
+            <Route path="/create">
+              <Create />
+            </Route>
+          </Switch>
+        </Layout>
       </Router>
     </ThemeProvider>
   );
