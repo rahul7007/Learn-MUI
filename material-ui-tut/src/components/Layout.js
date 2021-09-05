@@ -26,6 +26,9 @@ const useStyles = makeStyles({
     },
     active: {
         backgroundColor: '#f4f4f4'
+    },
+    title: {
+        padding: '1.5rem'
     }
 })
 
@@ -63,7 +66,7 @@ const Layout = ({ children }) => {
                 anchor="left"
                 classes={{ paper: classes.drawerPaper }}
             >
-                <div>
+                <div className={classes.title}>
                     <Typography variant="h5">
                         Ninja Notes
                     </Typography>
