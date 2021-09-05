@@ -7,28 +7,39 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { SubjectOutlined, AddCircleOutlined } from '@material-ui/icons';
 import { useHistory, useLocation } from 'react-router';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 const drawerWidth = 240
 
-const useStyles = makeStyles({
-    page: {
-        backgroundColor: '#ffe4e3',
-        width: '100%'
-    },
-    drawer: {
-        width: drawerWidth
-    },
-    drawerPaper: {
-        width: drawerWidth
-    },
-    root: {
-        display: 'flex'
-    },
-    active: {
-        backgroundColor: '#f4f4f4'
-    },
-    title: {
-        padding: '1.5rem'
+const useStyles = makeStyles((theme) => {
+    return {
+        page: {
+            backgroundColor: '#ffe4e3',
+            width: '100%'
+        },
+        drawer: {
+            width: drawerWidth
+        },
+        drawerPaper: {
+            width: drawerWidth
+        },
+        root: {
+            display: 'flex'
+        },
+        active: {
+            backgroundColor: '#f4f4f4'
+        },
+        title: {
+            padding: '1.5rem'
+        },
+        appbar: {
+            width: `calc(100% - ${drawerWidth}px)`
+        },
+        toolbar: theme.mixins.toolbar,
+        welcome: {
+            flexGrow: 1
+        }
     }
 })
 
@@ -57,6 +68,12 @@ const Layout = ({ children }) => {
     return (
         <div className={classes.root}>
             {/* appbar */}
+            <AppBar className={classes.appbar}>
+                <Toolbar>
+                    <Typography className={classes.welcome}>Welcome to Ninja notes</Typography>
+                    <Typography>Mario</Typography>
+                </Toolbar>
+            </AppBar>
 
             {/* sidedraw */}
 
@@ -92,6 +109,7 @@ const Layout = ({ children }) => {
             </Drawer>
 
             <div className={classes.page}>
+                <div className={classes.toolbar}></div>
                 {children}
             </div>
         </div>

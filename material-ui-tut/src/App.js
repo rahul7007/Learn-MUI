@@ -9,9 +9,9 @@ import Layout from './components/Layout';
 
 const myTheme = createTheme({
   palette: {
-    primary: {
-      main: "#631a13"
-    },
+    // primary: {
+    //   main: ""
+    // },
     secondary: purple,
     info: blue
   },
